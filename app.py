@@ -1,10 +1,6 @@
 import streamlit as st
 from streamlit_option_menu import option_menu
-import matplotlib.pyplot as plt
-import numpy as np
-import pandas as pd
-import plotly.offline as pyo
-import plotly.graph_objs as go
+
 from df import df
 
 
@@ -53,12 +49,12 @@ if option=='Individual':
     if credentials!='Select':
         name=df[df['credentials']==credentials][['name']].values[0][0]
         st.write('Hii 👋 ',name)
+        st.markdown("""---""")
         st.plotly_chart(plotter(line_graph([credentials])+mean_line()+max_line(),title='You VS Topper VS Average'))
-
-        # individual statistics
-
+        st.markdown("""---""")
         st.header('Select other students for competitive analysis')
         others=st.multiselect(label='Select students',options=df['credentials'])
         if others:
             st.plotly_chart(plotter(line_graph(others),title='Line Graph'))
             st.plotly_chart(plotter(bar_graph(others),title='Bar Graph'))
+            st.markdown("""---""")

@@ -1,7 +1,6 @@
-import pandas as pd
 import matplotlib.pylab as plt
-import numpy as np
 import plotly.graph_objs as go
+
 from df import df
 
 def line_graph(credentials):
@@ -19,8 +18,8 @@ def bar_graph(credentials):
     data=[]
     for i in credentials:
         trace=go.Bar(x=df.columns[2:7],y=df[df['credentials']==i].values[0][2:],
-                text=str(df[df['credentials']==i][['roll_no']].values[0][0]),
-                name=df[df['credentials']==i][['name']].values[0][0]
+                text=str(df[df['credentials']==i][['name']].values[0][0]),
+                name=str(df[df['credentials']==i][['roll_no']].values[0][0])
                  )
         data.append(trace)
     return data
