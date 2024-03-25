@@ -57,7 +57,7 @@ if option=='Individual Analysis':
         st.write('Students with equal SGPA are given same ranking.')
         st.markdown("""---""")
         st.header('OverAll Ranking')
-        st.write(f'Hey {name} your overall ranking is ',df[df['credentials']==credentials]['total_avg_rank'].values[0],'out of ',75,' students.')
+        st.write(f'Hey {name}, your overall ranking is ',df[df['credentials']==credentials]['total_avg_rank'].values[0],'out of ',75,' students.')
 
 
 
