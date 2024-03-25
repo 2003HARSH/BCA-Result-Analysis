@@ -52,8 +52,8 @@ if option=='Individual':
         st.markdown("""---""")
         st.plotly_chart(plotter(line_graph([credentials])+mean_line()+max_line(),title='You VS Topper VS Average'))
         st.markdown("""---""")
-        st.header('Select other students for competitive analysis')
-        others=st.multiselect(label='Select students',options=df['credentials'])
+        st.header('Select students for competitive analysis')
+        others=st.multiselect(label='You can select multiple students',options=df['credentials'])
         if others:
             st.plotly_chart(plotter(line_graph(others),title='Line Graph'))
             st.plotly_chart(plotter(bar_graph(others),title='Bar Graph'))
