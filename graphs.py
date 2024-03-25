@@ -17,7 +17,7 @@ def line_graph(credentials):
 def bar_graph(credentials):
     data=[]
     for i in credentials:
-        trace=go.Bar(x=df.columns[2:7],y=df[df['credentials']==i].values[0][2:],
+        trace=go.Bar(x=df.columns[2:7],y=df[df['credentials']==i].values[0][2:7],
                 text=str(df[df['credentials']==i][['name']].values[0][0]),
                 name=str(df[df['credentials']==i][['roll_no']].values[0][0])
                  )
@@ -48,11 +48,29 @@ def max_line():
         )
     return [trace]
 
+def rank_line_graph(credentials):
+    data=[]
+    for i in credentials:
+        trace=go.Scatter(x=df.columns[9:15],y=df[df['credentials']==i].values[0][9:15],
+                 mode='lines+markers',
+                 text=str(df[df['credentials']==i][['roll_no']].values[0][0]),
+                 name=df[df['credentials']==i][['name']].values[0][0]
+                 )
+        data.append(trace)
+    return data
+
+def rank_plotter(data,title):
+    layout=go.Layout(title=title,
+        xaxis={'title':'Semester'},
+        yaxis={'title':'SGPA'})
+    fig=go.Figure(data,layout)
+    fig.update_yaxes(autorange="reversed")
+    return fig
 
 def plotter(data,title):
     layout=go.Layout(title=title,
         xaxis={'title':'Semester'},
-        yaxis={'title':'SGPA'},)
+        yaxis={'title':'SGPA'})
     fig=go.Figure(data,layout)
     return fig
 

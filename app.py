@@ -16,15 +16,15 @@ st.title('BCA Result Analysis')
 with st.sidebar:
     option=option_menu(
         menu_title=None,
-        options=['Overall','Individual'],
-        icons=['house','file-person']
+        options=['Overall Analysis','Individual Analysis','Competitive Analysis'],
+        icons=['house','file-person','file-person']
     )
 
-if option=='Overall':
+if option=='Overall Analysis':
     st.plotly_chart(plotter(mean_line()+median_line(),title='Class Statistics'))
     st.markdown("""---""")
     st.header('Statistical Analysis')
-    st.dataframe(df.describe().iloc[1:,1:])
+    st.dataframe(df.describe().iloc[1:,1:6])
     st.markdown("""---""")
     st.plotly_chart(plotter(max_line()+mean_line(),title='Topper VS Average'))
     st.markdown("""---""")
@@ -44,7 +44,7 @@ if option=='Overall':
     st.pyplot(bar_plot('fifth_sem','5th'))
 
 
-if option=='Individual':
+if option=='Individual Analysis':
     credentials=st.selectbox(label='Select Your Credentials to view your Statistics',options=['Select']+list(df['credentials'].values))
     if credentials!='Select':
         name=df[df['credentials']==credentials][['name']].values[0][0]
@@ -52,9 +52,24 @@ if option=='Individual':
         st.markdown("""---""")
         st.plotly_chart(plotter(line_graph([credentials])+mean_line()+max_line(),title='You VS Topper VS Average'))
         st.markdown("""---""")
+        st.header('Your rank semester wise')
+        st.dataframe(df[df['credentials']==credentials].iloc[:,9:14])
+        st.write('Students with equal SGPA are given same ranking.')
+        st.markdown("""---""")
+        st.header('OverAll Ranking')
+        st.write(f'Hey {name} your overall ranking is ',df[df['credentials']==credentials]['total_avg_rank'].values[0],'out of ',75,' students.')
+
+
+
+if option=='Competitive Analysis':
         st.header('Select students for competitive analysis')
         others=st.multiselect(label='You can select multiple students',options=df['credentials'])
         if others:
-            st.plotly_chart(plotter(line_graph(others),title='Line Graph'))
-            st.plotly_chart(plotter(bar_graph(others),title='Bar Graph'))
+            st.plotly_chart(plotter(line_graph(others),title='SGPA Line Graph'))
+            st.plotly_chart(plotter(bar_graph(others),title='SGPA Bar Graph'))
             st.markdown("""---""")
+            st.header('Rank Comparision')
+            st.plotly_chart(rank_plotter(rank_line_graph(others),title='Rank Line Graph'))
+            st.write('Students with equal SGPA are given same ranking.')
+
+
