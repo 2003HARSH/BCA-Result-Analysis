@@ -30,7 +30,7 @@ This project aims to analyze BCA (Bachelor of Computer Applications) results usi
    Open your browser and go to `http://localhost:8501`.
    
 5. **Live Demo:**
-   Open your browser and go to `https://mlk-bca-result-analysis.streamlit.app/`.
+   [Click here](https://mlk-bca-result-analysis.streamlit.app/)
 
 ## Technologies Used
 - Python 🐍
