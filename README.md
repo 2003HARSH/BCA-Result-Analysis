@@ -3,6 +3,18 @@
 ## Overview
 This project aims to analyze BCA (Bachelor of Computer Applications) results using data visualization techniques. It provides insights into student performance trends over time, helping educators and administrators make informed decisions.
 
+### Screenshots:
+
+![](https://github.com/2003HARSH/BCA-Result-Analysis/blob/main/docs/static/1.png)
+![](https://github.com/2003HARSH/BCA-Result-Analysis/blob/main/docs/static/2.png)
+![](https://github.com/2003HARSH/BCA-Result-Analysis/blob/main/docs/static/3.png)
+![](https://github.com/2003HARSH/BCA-Result-Analysis/blob/main/docs/static/4.png)
+![](https://github.com/2003HARSH/BCA-Result-Analysis/blob/main/docs/static/5.png)
+![](https://github.com/2003HARSH/BCA-Result-Analysis/blob/main/docs/static/6.png)
+![](https://github.com/2003HARSH/BCA-Result-Analysis/blob/main/docs/static/7.png)
+![](https://github.com/2003HARSH/BCA-Result-Analysis/blob/main/docs/static/8.png)
+![](https://github.com/2003HARSH/BCA-Result-Analysis/blob/main/docs/static/9.png)
+
 ## Features
 - Interactive dashboards using Streamlit 🚀
 - Visualizations created with Plotly library 📈
